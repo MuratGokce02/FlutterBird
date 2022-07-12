@@ -5,6 +5,7 @@ void main() => runApp(
         home: Scaffold(
           appBar: AppBar(
             title: Text('hello'),
+            centerTitle: true,
           ),
           body: Center(
             child: Text("ll"),
