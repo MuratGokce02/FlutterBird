@@ -14,6 +14,7 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         title: Text('lolol'),
         centerTitle: true,
+        backgroundColor: Colors.black,
       ),
       body: Center(
         child: Text("ll"),
