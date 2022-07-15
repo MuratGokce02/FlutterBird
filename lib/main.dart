@@ -14,10 +14,13 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text('hello'),
+    return Column(children: <Widget>[
+      Container(
+        color: Colors.blue,
       ),
-    );
+      Container(
+        color: Colors.green,
+      ),
+    ]);
   }
 }
