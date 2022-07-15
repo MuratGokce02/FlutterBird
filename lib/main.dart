@@ -6,18 +6,17 @@ void main() => runApp(
       ),
     );
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('lolol'),
-        centerTitle: true,
-        backgroundColor: Colors.black,
-      ),
       body: Center(
-        child: Text("ll"),
+        child: Text('hello'),
       ),
     );
   }
