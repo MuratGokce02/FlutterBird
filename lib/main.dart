@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main() => runApp(
       MaterialApp(
@@ -15,11 +16,17 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
-      Container(
-        color: Colors.blue,
+      Expanded(
+        child: Container(
+          color: Colors.blue,
+        ),
+        flex: 2,
       ),
-      Container(
-        color: Colors.green,
+      Expanded(
+        child: Container(
+          color: Colors.green,
+        ),
+        flex: 1,
       ),
     ]);
   }
