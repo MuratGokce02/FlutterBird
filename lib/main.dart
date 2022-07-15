@@ -20,7 +20,7 @@ class _HomeState extends State<Home> {
         child: Container(
           color: Colors.blue,
         ),
-        flex: 2,
+        flex: 3,
       ),
       Expanded(
         child: Container(
