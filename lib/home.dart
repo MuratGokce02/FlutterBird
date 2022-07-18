@@ -21,10 +21,6 @@ class _HomeState extends State<Home> {
         ),
         flex: 1,
       ),
-      Expanded(
-          child: Center(
-        child: Text('hello'),
-      ))
     ]);
   }
 }
