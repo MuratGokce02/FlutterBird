@@ -30,7 +30,7 @@ class _HomeState extends State<Home> {
       setState(() {
         birdY = currentHeight - height;
       });
-      if (birdY > -1) {
+      if (birdY > 0) {
         timer.cancel();
         game = false;
       }
