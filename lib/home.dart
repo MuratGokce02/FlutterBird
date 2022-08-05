@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'bird.dart';
@@ -10,12 +9,18 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  double birdHeight = 0;
+  double birdY = 0;
+  double time = 0;
+  double currentHeight = 0;
+  double height = 0;
 
   void jump() {
+    currentHeight = birdY;
     Timer.periodic(Duration(milliseconds: 100), (timer) {
+      time += 0.02;
+      height = -4.9 * time * time + 5 * time;
       setState(() {
-        birdHeight += 0.1;
+        birdY = currentHeight - height;
       });
     });
   }
@@ -27,7 +32,7 @@ class _HomeState extends State<Home> {
         child: GestureDetector(
           onTap: jump,
           child: AnimatedContainer(
-            alignment: Alignment(-0.4, birdHeight),
+            alignment: Alignment(-0.4, birdY),
             duration: Duration(milliseconds: 0),
             color: Colors.blue,
             child: Bird(),
