@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'bird.dart'
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -12,6 +13,7 @@ class _HomeState extends State<Home> {
       Expanded(
         child: Container(
           color: Colors.blue,
+          child: Bird(),
         ),
         flex: 3,
       ),
