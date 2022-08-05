@@ -17,8 +17,8 @@ class _HomeState extends State<Home> {
   void jump() {
     currentHeight = birdY;
     Timer.periodic(Duration(milliseconds: 100), (timer) {
-      time += 0.02;
-      height = -4.9 * time * time + 5 * time;
+      time += 0.05;
+      height = -4.9 * time * time + 2 * time;
       setState(() {
         birdY = currentHeight - height;
       });
