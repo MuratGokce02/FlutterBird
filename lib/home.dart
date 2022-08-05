@@ -9,19 +9,31 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  double birdY = 0;
+  static double birdY = 0;
   double time = 0;
-  double currentHeight = 0;
+  double currentHeight = birdY;
   double height = 0;
+  bool game = false;
 
   void jump() {
-    currentHeight = birdY;
-    Timer.periodic(Duration(milliseconds: 100), (timer) {
+    setState(() {
+      time = 0;
+      currentHeight = birdY;
+    });
+  }
+
+  void startGame() {
+    game = true;
+    Timer.periodic(Duration(milliseconds: 60), (timer) {
       time += 0.05;
-      height = -4.9 * time * time + 2 * time;
+      height = -4.9 * time * time + 2.8 * time;
       setState(() {
         birdY = currentHeight - height;
       });
+      if (birdY > -1) {
+        timer.cancel();
+        game = false;
+      }
     });
   }
 
@@ -30,7 +42,13 @@ class _HomeState extends State<Home> {
     return Column(children: <Widget>[
       Expanded(
         child: GestureDetector(
-          onTap: jump,
+          onTap: () {
+            if (game) {
+              jump();
+            } else {
+              startGame();
+            }
+          },
           child: AnimatedContainer(
             alignment: Alignment(-0.4, birdY),
             duration: Duration(milliseconds: 0),
