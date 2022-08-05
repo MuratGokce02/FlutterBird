@@ -11,7 +11,9 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
       Expanded(
-        child: Container(
+        child: AnimatedContainer(
+          alignment: Alignment(0, 0),
+          duration: Duration(milliseconds: 0),
           color: Colors.blue,
           child: Bird(),
         ),
