@@ -66,20 +66,20 @@ class _HomeState extends State<Home> {
             children: [
               Column(
                 children: [
-                  Text('SCORE'),
+                  Text('SCORE', style: TextStyle(color: Colors.white, fontSize: 25)),
                   SizedBox(
                     height: 30,
                   ),
-                  Text('0'),
+                  Text('0', style: TextStyle(color: Colors.white, fontSize: 35)),
                 ],
               ),
               Column(
                 children: [
-                  Text('BEST'),
+                  Text('BEST', style: TextStyle(color: Colors.white, fontSize: 25)),
                   SizedBox(
                     height: 30,
                   ),
-                  Text('0'),
+                  Text('0', style: TextStyle(color: Colors.white, fontSize: 30)),
                 ],
               ),
             ],
