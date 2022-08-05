@@ -62,7 +62,7 @@ class _HomeState extends State<Home> {
         child: Container(
           color: Colors.green,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Column(
                 children: [
