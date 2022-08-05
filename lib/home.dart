@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'bird.dart';
 
@@ -10,8 +13,10 @@ class _HomeState extends State<Home> {
   double birdHeight = 0;
 
   void jump() {
-    setState(() {
-      birdHeight -= 0.1;
+    Timer.periodic(Duration(milliseconds: 100), (timer) {
+      setState(() {
+        birdHeight += 0.1;
+      });
     });
   }
 
