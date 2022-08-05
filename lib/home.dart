@@ -65,6 +65,7 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('SCORE', style: TextStyle(color: Colors.white, fontSize: 25)),
                   SizedBox(
@@ -74,6 +75,7 @@ class _HomeState extends State<Home> {
                 ],
               ),
               Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('BEST', style: TextStyle(color: Colors.white, fontSize: 25)),
                   SizedBox(
