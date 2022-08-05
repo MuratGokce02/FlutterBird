@@ -11,7 +11,7 @@ class _HomeState extends State<Home> {
 
   void jump() {
     setState(() {
-      birdHeight += 0.1;
+      birdHeight -= 0.1;
     });
   }
 
