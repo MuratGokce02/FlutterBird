@@ -7,15 +7,26 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  double birdHeight = 0;
+
+  void jump() {
+    setState(() {
+      birdHeight += 0.1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
       Expanded(
-        child: AnimatedContainer(
-          alignment: Alignment(0, 0),
-          duration: Duration(milliseconds: 0),
-          color: Colors.blue,
-          child: Bird(),
+        child: GestureDetector(
+          onTap: jump,
+          child: AnimatedContainer(
+            alignment: Alignment(0, birdHeight),
+            duration: Duration(milliseconds: 0),
+            color: Colors.blue,
+            child: Bird(),
+          ),
         ),
         flex: 3,
       ),
