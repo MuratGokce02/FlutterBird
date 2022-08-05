@@ -61,6 +61,29 @@ class _HomeState extends State<Home> {
       Expanded(
         child: Container(
           color: Colors.green,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                children: [
+                  Text('SCORE'),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Text('0'),
+                ],
+              ),
+              Column(
+                children: [
+                  Text('BEST'),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Text('0'),
+                ],
+              ),
+            ],
+          ),
         ),
         flex: 1,
       ),
