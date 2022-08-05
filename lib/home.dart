@@ -22,7 +22,7 @@ class _HomeState extends State<Home> {
         child: GestureDetector(
           onTap: jump,
           child: AnimatedContainer(
-            alignment: Alignment(0, birdHeight),
+            alignment: Alignment(-0.4, birdHeight),
             duration: Duration(milliseconds: 0),
             color: Colors.blue,
             child: Bird(),
