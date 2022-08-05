@@ -8,6 +8,6 @@ class Bird extends StatefulWidget {
 class _BirdState extends State<Bird> {
   @override
   Widget build(BuildContext context) {
-    return Image.asset('bird.png');
+    return Image.asset('lib/images/bird.png');
   }
 }
