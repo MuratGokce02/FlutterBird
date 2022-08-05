@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'bird.dart'
+import 'bird.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
