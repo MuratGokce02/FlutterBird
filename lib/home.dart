@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterbird/pipe.dart';
 import 'bird.dart';
 
 class Home extends StatefulWidget {
@@ -41,21 +42,24 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
       Expanded(
-        child: GestureDetector(
-          onTap: () {
-            if (game) {
-              jump();
-            } else {
-              startGame();
-            }
-          },
-          child: AnimatedContainer(
-            alignment: Alignment(-0.4, birdY),
-            duration: Duration(milliseconds: 0),
-            color: Colors.blue,
-            child: Bird(),
+        child: Stack(children: [
+          GestureDetector(
+            onTap: () {
+              if (game) {
+                jump();
+              } else {
+                startGame();
+              }
+            },
+            child: AnimatedContainer(
+              alignment: Alignment(-0.4, birdY),
+              duration: Duration(milliseconds: 0),
+              color: Colors.blue,
+              child: Bird(),
+            ),
           ),
-        ),
+          Pipe(),
+        ]),
         flex: 3,
       ),
       Expanded(
@@ -67,21 +71,25 @@ class _HomeState extends State<Home> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('SCORE', style: TextStyle(color: Colors.white, fontSize: 25)),
+                  Text('SCORE',
+                      style: TextStyle(color: Colors.white, fontSize: 25)),
                   SizedBox(
                     height: 30,
                   ),
-                  Text('0', style: TextStyle(color: Colors.white, fontSize: 35)),
+                  Text('0',
+                      style: TextStyle(color: Colors.white, fontSize: 35)),
                 ],
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('BEST', style: TextStyle(color: Colors.white, fontSize: 25)),
+                  Text('BEST',
+                      style: TextStyle(color: Colors.white, fontSize: 25)),
                   SizedBox(
                     height: 30,
                   ),
-                  Text('0', style: TextStyle(color: Colors.white, fontSize: 30)),
+                  Text('0',
+                      style: TextStyle(color: Colors.white, fontSize: 30)),
                 ],
               ),
             ],
