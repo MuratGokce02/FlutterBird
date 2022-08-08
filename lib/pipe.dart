@@ -13,17 +13,16 @@ class _PipeState extends State<Pipe> {
     return Column(
       children: [
         Container(
-          height: 100,
-          width: 130,
+          height: 1000,
+          width: 70,
           color: Colors.green,
         ),
         SizedBox(
           height: space,
-          width: 130,
         ),
         Container(
-          height: 100,
-          width: 130,
+          height: 1000,
+          width: 70,
           color: Colors.green,
         ),
       ],
