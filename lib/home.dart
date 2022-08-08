@@ -60,6 +60,9 @@ class _HomeState extends State<Home> {
             ),
           ),
           Pipe(),
+          Container(
+            alignment: Alignment(0, 0.5),
+          ),
         ]),
         flex: 3,
       ),
