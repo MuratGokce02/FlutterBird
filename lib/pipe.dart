@@ -14,7 +14,6 @@ class _PipeState extends State<Pipe> {
       children: [
         Container(
           color: Colors.green,
-          width: 30,
         ),
         SizedBox(
           height: space,
