@@ -62,7 +62,13 @@ class _HomeState extends State<Home> {
           Pipe(),
           Container(
             alignment: Alignment(0, 0.5),
-            child: Text('PLAY', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
+            child: Text(
+              'PLAY',
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
         ]),
         flex: 3,
@@ -76,25 +82,45 @@ class _HomeState extends State<Home> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('SCORE',
-                      style: TextStyle(color: Colors.white, fontSize: 25)),
+                  Text(
+                    'SCORE',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                    ),
+                  ),
                   SizedBox(
                     height: 30,
                   ),
-                  Text('0',
-                      style: TextStyle(color: Colors.white, fontSize: 35)),
+                  Text(
+                    '0',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 35,
+                    ),
+                  ),
                 ],
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('BEST',
-                      style: TextStyle(color: Colors.white, fontSize: 25)),
+                  Text(
+                    'BEST',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                    ),
+                  ),
                   SizedBox(
                     height: 30,
                   ),
-                  Text('0',
-                      style: TextStyle(color: Colors.white, fontSize: 30)),
+                  Text(
+                    '0',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30,
+                    ),
+                  ),
                 ],
               ),
             ],
