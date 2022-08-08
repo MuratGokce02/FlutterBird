@@ -62,6 +62,7 @@ class _HomeState extends State<Home> {
           Pipe(),
           Container(
             alignment: Alignment(0, 0.5),
+            child: Text('PLAY', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
           ),
         ]),
         flex: 3,
