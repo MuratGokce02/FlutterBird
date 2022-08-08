@@ -60,19 +60,21 @@ class _HomeState extends State<Home> {
             ),
           ),
           AnimatedContainer(
-            alignment: Alignment(0.4, 0),
+            alignment: Alignment(0.4, 1),
             duration: Duration(milliseconds: 0),
             child: Pipe(),
           ),
           Container(
             alignment: Alignment(0, 0.5),
-            child: game? Text(' ') : Text(
-              'PLAY',
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            child: game
+                ? Text(' ')
+                : Text(
+                    'PLAY',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
           ),
         ]),
         flex: 3,
