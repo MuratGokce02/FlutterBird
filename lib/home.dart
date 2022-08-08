@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
           ),
           Container(
             alignment: Alignment(0, 0.5),
-            child: Text(
+            child: game? Text(' ') : Text(
               'PLAY',
               style: TextStyle(
                 color: Colors.black,
