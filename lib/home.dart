@@ -60,7 +60,7 @@ class _HomeState extends State<Home> {
             ),
           ),
           AnimatedContainer(
-            alignment: Alignment(0.4, 1),
+            alignment: Alignment(0.4, 0.4),
             duration: Duration(milliseconds: 0),
             child: Pipe(),
           ),
