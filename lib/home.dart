@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbird/pipe.dart';
 import 'bird.dart';
+import 'pipe.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
