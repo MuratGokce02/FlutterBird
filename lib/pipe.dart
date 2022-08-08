@@ -10,22 +10,11 @@ class _PipeState extends State<Pipe> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
+    return 
         Container(
           height: 100,
           width: 70,
           color: Colors.green,
-        ),
-        SizedBox(
-          height: space,
-        ),
-        Container(
-          height: 100,
-          width: 70,
-          color: Colors.green,
-        ),
-      ],
-    );
+        );
   }
 }

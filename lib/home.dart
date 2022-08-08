@@ -59,11 +59,6 @@ class _HomeState extends State<Home> {
               child: Bird(),
             ),
           ),
-          AnimatedContainer(
-            alignment: Alignment(0.4, 1),
-            duration: Duration(milliseconds: 0),
-            child: Pipe(),
-          ),
           Container(
             alignment: Alignment(0, 0.5),
             child: game
@@ -75,6 +70,11 @@ class _HomeState extends State<Home> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+          ),
+          AnimatedContainer(
+            alignment: Alignment(0.4, 1),
+            duration: Duration(milliseconds: 0),
+            child: Pipe(),
           ),
         ]),
         flex: 3,
