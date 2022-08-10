@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
         birdY = currentHeight - height;
       });
       setState(() {
-        if (pipeLoc < -1.2) {
+        if (pipeLoc < -1.3) {
           pipeLoc += 2.2;
         } else {
           pipeLoc -= 0.05;
@@ -51,107 +51,108 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(children: <Widget>[
-        Expanded(
-          child: Stack(children: [
-            GestureDetector(
-              onTap: () {
+    return GestureDetector(
+      onTap: () {
+
                 if (game) {
                   jump();
                 } else {
                   startGame();
                 }
               },
-              child: AnimatedContainer(
+      child: Scaffold(
+        body: Column(children: <Widget>[
+          Expanded(
+            child: Stack(children: [
+              AnimatedContainer(
                 alignment: Alignment(-0.4, birdY),
                 duration: Duration(milliseconds: 0),
                 color: Colors.blue,
                 child: Bird(),
               ),
-            ),
-            Container(
-              alignment: Alignment(0, 0.5),
-              child: game
-                  ? Text(' ')
-                  : Text(
-                      'PLAY',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 50,
+              Container(
+                alignment: Alignment(0, 0.5),
+                child: game
+                    ? Text(' ')
+                    : Text(
+                        'PLAY',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 50,
+                        ),
                       ),
-                    ),
-            ),
-            AnimatedContainer(
-              alignment: Alignment(pipeLoc, -1),
-              duration: Duration(milliseconds: 0),
-              child: Pipe(upperPipeSize),
-            ),
-            AnimatedContainer(
-              alignment: Alignment(pipeLoc, 1),
-              duration: Duration(milliseconds: 0),
-              child: Pipe(lowerPipeSize),
-            ),
-          ]),
-          flex: 3,
-        ),
-        Expanded(
-          child: Container(
-            color: Colors.green,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'SCORE',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 25,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Text(
-                      '0',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 35,
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'BEST',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 25,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Text(
-                      '0',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 30,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+              ),
+              AnimatedContainer(
+                alignment: Alignment(pipeLoc, -1),
+                duration: Duration(milliseconds: 0),
+                child: Pipe(upperPipeSize),
+              ),
+              AnimatedContainer(
+                alignment: Alignment(pipeLoc, 1),
+                duration: Duration(milliseconds: 0),
+                child: Pipe(lowerPipeSize),
+              ),
+            ]),
+            flex: 3,
           ),
-          flex: 1,
-        ),
-      ]),
+          Expanded(
+            child: Container(
+              color: Colors.green,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'SCORE',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Text(
+                        '0',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 35,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'BEST',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Text(
+                        '0',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            flex: 1,
+          ),
+        ]),
+      ),
     );
   }
 }
