@@ -18,8 +18,8 @@ class _HomeState extends State<Home> {
   double height = 0;
   bool game = false;
   double pipeLoc = 1;
-  double lowerPipeSize = Random().nextDouble() * 100 - 10;
-  double upperPipeSize = Random().nextDouble() * 100 - 10;
+  double lowerPipeSize = Random().nextDouble() * 100;
+  double upperPipeSize = Random().nextDouble() * 100;
 
   void jump() {
     setState(() {
