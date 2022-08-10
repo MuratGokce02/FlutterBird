@@ -69,7 +69,7 @@ class _HomeState extends State<Home> {
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
-                        fontSize: 20,
+                        fontSize: 50,
                       ),
                     ),
             ),
