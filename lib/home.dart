@@ -30,11 +30,17 @@ class _HomeState extends State<Home> {
   void startGame() {
     game = true;
     Timer.periodic(Duration(milliseconds: 60), (timer) {
-      pipeLoc -= 0.05;
       time += 0.05;
       height = -4.9 * time * time + 2.8 * time;
       setState(() {
         birdY = currentHeight - height;
+      });
+      setState(() {
+        if(pipeLoc < -1){
+          pipeLoc += 2.2;
+        } else {
+          pipeLoc -= 5;
+        }
       });
       if (birdY > 1) {
         timer.cancel();
