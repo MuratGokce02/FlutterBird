@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterbird/pipe.dart';
 import 'bird.dart';
 import 'pipe.dart';
+import 'dart:math';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class _HomeState extends State<Home> {
   double height = 0;
   bool game = false;
   double pipeLoc = 1;
-  double lowerPipeSize = 150;
+  int lowerPipeSize = Random().nextInt(100) - 10;
   double upperPipeSize = 150;
 
   void jump() {
