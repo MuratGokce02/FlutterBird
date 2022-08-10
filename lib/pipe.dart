@@ -7,6 +7,7 @@ class Pipe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.green,
       width: 120,
       height: pipeHeight,
     );
