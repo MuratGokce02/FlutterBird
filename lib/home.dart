@@ -17,8 +17,8 @@ class _HomeState extends State<Home> {
   double height = 0;
   bool game = false;
   double pipeLoc = 1;
-  double lowerPipeSize = 100;
-  double upperPipeSize = 100;
+  double lowerPipeSize = 150;
+  double upperPipeSize = 150;
 
   void jump() {
     setState(() {
