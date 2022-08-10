@@ -36,8 +36,8 @@ class _HomeState extends State<Home> {
         birdY = currentHeight - height;
       });
       setState(() {
-        if (pipeLoc < -1.3) {
-          pipeLoc += 2.2;
+        if (pipeLoc < -1.4) {
+          pipeLoc += 2.7;
         } else {
           pipeLoc -= 0.05;
         }
@@ -53,13 +53,12 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-
-                if (game) {
-                  jump();
-                } else {
-                  startGame();
-                }
-              },
+        if (game) {
+          jump();
+        } else {
+          startGame();
+        }
+      },
       child: Scaffold(
         body: Column(children: <Widget>[
           Expanded(
