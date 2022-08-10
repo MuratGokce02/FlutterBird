@@ -74,7 +74,7 @@ class _HomeState extends State<Home> {
           AnimatedContainer(
             alignment: Alignment(0.4, 1),
             duration: Duration(milliseconds: 0),
-            child: Pipe(),
+            child: Pipe(100),
           ),
         ]),
         flex: 3,
