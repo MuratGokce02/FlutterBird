@@ -41,99 +41,101 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: <Widget>[
-      Expanded(
-        child: Stack(children: [
-          GestureDetector(
-            onTap: () {
-              if (game) {
-                jump();
-              } else {
-                startGame();
-              }
-            },
-            child: AnimatedContainer(
-              alignment: Alignment(-0.4, birdY),
+    return Scaffold(
+      body: Column(children: <Widget>[
+        Expanded(
+          child: Stack(children: [
+            GestureDetector(
+              onTap: () {
+                if (game) {
+                  jump();
+                } else {
+                  startGame();
+                }
+              },
+              child: AnimatedContainer(
+                alignment: Alignment(-0.4, birdY),
+                duration: Duration(milliseconds: 0),
+                color: Colors.blue,
+                child: Bird(),
+              ),
+            ),
+            Container(
+              alignment: Alignment(0, 0.5),
+              child: game
+                  ? Text(' ')
+                  : Text(
+                      'PLAY',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+            ),
+            AnimatedContainer(
+              alignment: Alignment(0.4, 1),
               duration: Duration(milliseconds: 0),
-              color: Colors.blue,
-              child: Bird(),
+              child: Pipe(100),
+            ),
+          ]),
+          flex: 3,
+        ),
+        Expanded(
+          child: Container(
+            color: Colors.green,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'SCORE',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 25,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Text(
+                      '0',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 35,
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'BEST',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 25,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Text(
+                      '0',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
-          Container(
-            alignment: Alignment(0, 0.5),
-            child: game
-                ? Text(' ')
-                : Text(
-                    'PLAY',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-          ),
-          AnimatedContainer(
-            alignment: Alignment(0.4, 1),
-            duration: Duration(milliseconds: 0),
-            child: Pipe(100),
-          ),
-        ]),
-        flex: 3,
-      ),
-      Expanded(
-        child: Container(
-          color: Colors.green,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'SCORE',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Text(
-                    '0',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 35,
-                    ),
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'BEST',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Text(
-                    '0',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 30,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
+          flex: 1,
         ),
-        flex: 1,
-      ),
-    ]);
+      ]),
+    );
   }
 }
