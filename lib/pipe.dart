@@ -8,7 +8,7 @@ class Pipe extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.green,
-      width: 600,
+      width: 60,
       height: pipeHeight,
     );
   }
