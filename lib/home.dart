@@ -16,6 +16,7 @@ class _HomeState extends State<Home> {
   double currentHeight = birdY;
   double height = 0;
   bool game = false;
+  double pipeLoc = 1;
 
   void jump() {
     setState(() {
@@ -27,6 +28,7 @@ class _HomeState extends State<Home> {
   void startGame() {
     game = true;
     Timer.periodic(Duration(milliseconds: 60), (timer) {
+      pipeLoc -= 0.05;
       time += 0.05;
       height = -4.9 * time * time + 2.8 * time;
       setState(() {
@@ -74,9 +76,14 @@ class _HomeState extends State<Home> {
                     ),
             ),
             AnimatedContainer(
-              alignment: Alignment(0.4, 1),
+              alignment: Alignment(pipeLoc, -1),
               duration: Duration(milliseconds: 0),
-              child: Pipe(100),
+              child: Pipe(upperPipeSize),
+            ),
+            AnimatedContainer(
+              alignment: Alignment(pipeLoc, 1),
+              duration: Duration(milliseconds: 0),
+              child: Pipe(lowerPipeSize),
             ),
           ]),
           flex: 3,
