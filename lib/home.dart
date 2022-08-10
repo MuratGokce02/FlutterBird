@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
         birdY = currentHeight - height;
       });
       setState(() {
-        if (pipeLoc < -1) {
+        if (pipeLoc < -1.2) {
           pipeLoc += 2.2;
         } else {
           pipeLoc -= 0.05;
