@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Pipe extends StatelessWidget {
-  double pipeHeight = 0;
-  Pipe(double this.pipeHeight);
+  int pipeHeight = 0;
+  Pipe(int this.pipeHeight);
 
   @override
   Widget build(BuildContext context) {
