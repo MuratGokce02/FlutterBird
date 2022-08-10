@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
   bool game = false;
   double pipeLoc = 1;
   int lowerPipeSize = Random().nextInt(100) - 10;
-  double upperPipeSize = 150;
+  int upperPipeSize = 150;
 
   void jump() {
     setState(() {
