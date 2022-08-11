@@ -30,6 +30,7 @@ class _HomeState extends State<Home> {
 
   void startGame() {
     game = true;
+    upperPipeSize = Random().nextDouble() * 500;
     Timer.periodic(Duration(milliseconds: 60), (timer) {
       time += 0.05;
       height = -4.9 * time * time + 2.8 * time;
@@ -43,7 +44,6 @@ class _HomeState extends State<Home> {
           pipeLoc -= 0.05;
         }
       });
-      upperPipeSize = Random().nextDouble() * 500;
       if (birdY > 1) {
         timer.cancel();
         game = false;
