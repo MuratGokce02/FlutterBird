@@ -45,11 +45,11 @@ class _HomeState extends State<Home> {
         }
       });
       setState(() {
-        if(upperPipeSize + lowerPipeSize > 1000){
-          if(upperPipeSize > lowerPipeSize){
-            upperPipeSize -= 100;
+        if (upperPipeSize + lowerPipeSize > 1000) {
+          if (upperPipeSize > lowerPipeSize) {
+            upperPipeSize -= 1000;
           } else {
-            lowerPipeSize -= 100;
+            lowerPipeSize -= 1000;
           }
         }
       });
