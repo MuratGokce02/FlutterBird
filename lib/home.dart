@@ -44,6 +44,15 @@ class _HomeState extends State<Home> {
           pipeLoc -= 0.05;
         }
       });
+      setState(() {
+        if(upperPipeSize + lowerPipeSize > 1000){
+          if(upperPipeSize > lowerPipeSize){
+            upperPipeSize -= 100;
+          } else {
+            lowerPipeSize -= 100;
+          }
+        }
+      });
       if (birdY > 1) {
         timer.cancel();
         game = false;
