@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
   bool game = false;
   double pipeLoc = 1;
   double lowerPipeSize = Random().nextDouble() * 500;
-  double upperPipeSize = lowerPipeSize - Random().nextDouble() * 500;
+  double upperPipeSize = 0;
 
   void jump() {
     setState(() {
@@ -43,6 +43,7 @@ class _HomeState extends State<Home> {
           pipeLoc -= 0.05;
         }
       });
+      upperPipeSize = Random().nextDouble() * 500;
       if (birdY > 1) {
         timer.cancel();
         game = false;
@@ -84,12 +85,12 @@ class _HomeState extends State<Home> {
                       ),
               ),
               AnimatedContainer(
-                alignment: Alignment(pipeLoc, -1),
+                alignment: Alignment(pipeLoc, -1.4),
                 duration: Duration(milliseconds: 0),
                 child: Pipe(upperPipeSize),
               ),
               AnimatedContainer(
-                alignment: Alignment(pipeLoc, 1),
+                alignment: Alignment(pipeLoc, 1.4),
                 duration: Duration(milliseconds: 0),
                 child: Pipe(lowerPipeSize),
               ),
