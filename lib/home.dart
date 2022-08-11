@@ -47,9 +47,9 @@ class _HomeState extends State<Home> {
       setState(() {
         if (upperPipeSize + lowerPipeSize > 1000) {
           if (upperPipeSize > lowerPipeSize) {
-            upperPipeSize -= 1000;
+            upperPipeSize -= 100;
           } else {
-            lowerPipeSize -= 1000;
+            lowerPipeSize -= 100;
           }
         }
       });
