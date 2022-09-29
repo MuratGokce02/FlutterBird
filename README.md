@@ -1,2 +1,2 @@
 # Flutter Bird
-A flappbird clone made using flutter using flutlab.io.
+A flappbird clone made using flutter and flutlab.io.
