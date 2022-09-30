@@ -42,19 +42,3 @@ class Pipe extends StatelessWidget {
     );
   }
 }
-
-/*
-class Pipe extends StatelessWidget {
-  double pipeHeight = 100;
-  Pipe(double this.pipeHeight);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.green,
-      width: 60,
-      height: pipeHeight,
-    );
-  }
-}
-*/

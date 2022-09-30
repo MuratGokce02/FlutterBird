@@ -48,6 +48,7 @@ class _HomeState extends State<Home> {
       rotation = 0;
       time = 0;
       height = 0;
+      currentHeight = 0;
       if (score > best) {
         best = score;
       }
