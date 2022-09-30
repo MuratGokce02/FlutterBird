@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Bird extends StatefulWidget {
-  const Bird({Key? key}) : super(key: key);
-  _BirdState createState() => _BirdState();
-}
+class Bird extends StatelessWidget {
+  Bird(this.birdKey);
+  var birdKey = GlobalKey();
 
-class _BirdState extends State<Bird> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: birdKey,
       height: 50,
       width: 50,
       child: Image.asset('lib/images/bird.png'),
