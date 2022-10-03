@@ -1,3 +1,4 @@
 # Flutter Bird
 
-A flappy bird copy made in flutter using https://flutlab.io
+A flappy bird copy made with flutter using https://flutlab.io
+
