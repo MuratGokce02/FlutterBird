@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbird/pipe.dart';
@@ -17,9 +18,18 @@ class _HomeState extends State<Home> {
   double currentHeight = birdY;
   double height = 0;
   bool game = false;
-  double pipeLoc = 1;
-  double lowerPipeSize = Random().nextDouble() * 500;
-  double upperPipeSize = 0;
+  double pipeLoc = 1.4;
+  int upperPipeSize = Random().nextInt(60) + 20;
+  int emptySpace = Random().nextInt(30) + 25;
+  int lowerPipeSize = Random().nextInt(60) + 20;
+  final upperPipeKey = GlobalKey();
+  final lowerPipeKey = GlobalKey();
+  final birdKey = GlobalKey();
+  int score = 0;
+  int best = 0;
+  double rotation = 0;
+  double birdAngle = 0;
+  double lol = 1;
 
   void jump() {
     setState(() {
@@ -28,34 +38,99 @@ class _HomeState extends State<Home> {
     });
   }
 
+  void reset() {
+    setState(() {
+      pipeLoc = 1.4;
+      upperPipeSize = Random().nextInt(60) + 20;
+      emptySpace = Random().nextInt(30) + 25;
+      lowerPipeSize = Random().nextInt(60) + 20;
+      birdY = 0;
+      rotation = 0;
+      time = 0;
+      height = 0;
+      currentHeight = 0;
+      if (score > best) {
+        best = score;
+      }
+      score = 0;
+      game = false;
+    });
+  }
+
+  void scored() {
+    setState(() {
+      score += 1;
+    });
+  }
+
   void startGame() {
     game = true;
-    upperPipeSize = Random().nextDouble() * 500;
     Timer.periodic(Duration(milliseconds: 60), (timer) {
       time += 0.05;
       height = -4.9 * time * time + 2.8 * time;
+
       setState(() {
         birdY = currentHeight - height;
       });
+
+      setState(() {
+        rotation = -asin(height / sqrt(pow(height, 2) + pow(0.8, 2)));
+      });
+
       setState(() {
         if (pipeLoc < -1.4) {
-          pipeLoc += 2.7;
+          upperPipeSize = Random().nextInt(60) + 20;
+          emptySpace = Random().nextInt(30) + 25;
+          lowerPipeSize = Random().nextInt(60) + 20;
+          pipeLoc += 2.8;
+          scored();
         } else {
-          pipeLoc -= 0.05;
+          pipeLoc -= 0.1;
         }
       });
+
       setState(() {
-        if (upperPipeSize + lowerPipeSize > 1000) {
-          if (upperPipeSize > lowerPipeSize) {
-            upperPipeSize -= 100;
-          } else {
-            lowerPipeSize -= 100;
-          }
+        RenderBox birdBox =
+            birdKey.currentContext?.findRenderObject() as RenderBox;
+        RenderBox upperPipeBox =
+            upperPipeKey.currentContext?.findRenderObject() as RenderBox;
+        RenderBox lowerPipeBox =
+            lowerPipeKey.currentContext?.findRenderObject() as RenderBox;
+
+        final birdSize = birdBox.size;
+        final upperPipeSize = upperPipeBox.size;
+        final lowerPipeSize = lowerPipeBox.size;
+
+        final birdPosition = birdBox.localToGlobal(Offset.zero);
+        final upperPipePosition = upperPipeBox.localToGlobal(Offset.zero);
+        final lowerPipePosition = lowerPipeBox.localToGlobal(Offset.zero);
+
+        if (birdPosition.dx < upperPipePosition.dx + upperPipeSize.width &&
+            birdPosition.dx + birdSize.width > upperPipePosition.dx &&
+            birdPosition.dy < upperPipePosition.dy + upperPipeSize.height &&
+            birdPosition.dy + birdSize.height > upperPipePosition.dy) {
+          timer.cancel();
+          reset();
+        }
+
+        if (birdPosition.dx < lowerPipePosition.dx + lowerPipeSize.width &&
+            birdPosition.dx + birdSize.width > lowerPipePosition.dx &&
+            birdPosition.dy < lowerPipePosition.dy + lowerPipeSize.height &&
+            birdPosition.dy + birdSize.height > lowerPipePosition.dy) {
+          timer.cancel();
+          reset();
         }
       });
-      if (birdY > 1) {
+
+      setState(() {
+        if (pipeLoc == -1.4) {
+          scored();
+        }
+      });
+
+      if (birdY > 1 || birdY < -1) {
         timer.cancel();
-        game = false;
+        reset();
       }
     });
   }
@@ -74,11 +149,22 @@ class _HomeState extends State<Home> {
         body: Column(children: <Widget>[
           Expanded(
             child: Stack(children: [
+              Container(
+                color: Colors.blue,
+              ),
+              AnimatedContainer(
+                alignment: Alignment(pipeLoc, -1.4),
+                duration: Duration(milliseconds: 0),
+                child: Pipe(upperPipeSize, emptySpace, lowerPipeSize,
+                    upperPipeKey, lowerPipeKey),
+              ),
               AnimatedContainer(
                 alignment: Alignment(-0.4, birdY),
                 duration: Duration(milliseconds: 0),
-                color: Colors.blue,
-                child: Bird(),
+                child: Transform.rotate(
+                  angle: rotation,
+                  child: Bird(birdKey),
+                ),
               ),
               Container(
                 alignment: Alignment(0, 0.5),
@@ -92,16 +178,6 @@ class _HomeState extends State<Home> {
                           fontSize: 50,
                         ),
                       ),
-              ),
-              AnimatedContainer(
-                alignment: Alignment(pipeLoc, -1.4),
-                duration: Duration(milliseconds: 0),
-                child: Pipe(upperPipeSize),
-              ),
-              AnimatedContainer(
-                alignment: Alignment(pipeLoc, 1.4),
-                duration: Duration(milliseconds: 0),
-                child: Pipe(lowerPipeSize),
               ),
             ]),
             flex: 3,
@@ -126,7 +202,7 @@ class _HomeState extends State<Home> {
                         height: 30,
                       ),
                       Text(
-                        '0',
+                        '$score',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 35,
@@ -148,10 +224,10 @@ class _HomeState extends State<Home> {
                         height: 30,
                       ),
                       Text(
-                        '0',
+                        '$best',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 30,
+                          fontSize: 35,
                         ),
                       ),
                     ],

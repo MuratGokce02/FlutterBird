@@ -1,2 +1,4 @@
 # Flutter Bird
-A flappbird clone made using flutter and flutlab.io.
+
+A flappy bird copy made with flutter using https://flutlab.io
+
