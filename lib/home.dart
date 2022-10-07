@@ -29,7 +29,6 @@ class _HomeState extends State<Home> {
   int best = 0;
   double rotation = 0;
   double birdAngle = 0;
-  double lol = 1;
 
   void jump() {
     setState(() {
