@@ -29,7 +29,6 @@ class _HomeState extends State<Home> {
   int best = 0;
   double rotation = 0;
   double birdAngle = 0;
-  double lol = 1;
 
   void jump() {
     setState(() {
@@ -65,9 +64,9 @@ class _HomeState extends State<Home> {
 
   void startGame() {
     game = true;
-    Timer.periodic(Duration(milliseconds: 60), (timer) {
-      time += 0.05;
-      height = -4.9 * time * time + 2.8 * time;
+    Timer.periodic(Duration(milliseconds: 33), (timer) {
+      time += 0.033;
+      height = -4.9 * time * time + 2.9 * time;
 
       setState(() {
         birdY = currentHeight - height;
@@ -85,7 +84,7 @@ class _HomeState extends State<Home> {
           pipeLoc += 2.8;
           scored();
         } else {
-          pipeLoc -= 0.1;
+          pipeLoc -= 0.07;
         }
       });
 
