@@ -20,7 +20,7 @@ class _HomeState extends State<Home> {
   bool game = false;
   double pipeLoc = 1.4;
   int upperPipeSize = Random().nextInt(60) + 20;
-  int emptySpace = Random().nextInt(30) + 25;
+  int emptySpace = Random().nextInt(30) + 30;
   int lowerPipeSize = Random().nextInt(60) + 20;
   final upperPipeKey = GlobalKey();
   final lowerPipeKey = GlobalKey();
@@ -41,8 +41,11 @@ class _HomeState extends State<Home> {
     setState(() {
       pipeLoc = 1.4;
       upperPipeSize = Random().nextInt(60) + 20;
-      emptySpace = Random().nextInt(30) + 25;
+      emptySpace = Random().nextInt(30) + 30;
       lowerPipeSize = Random().nextInt(60) + 20;
+      if (emptySpace < (upperPipeSize + lowerPipeSize) / 4) {
+        emptySpace = ((upperPipeSize + lowerPipeSize) / 3).toInt();
+      }
       birdY = 0;
       rotation = 0;
       time = 0;
@@ -64,8 +67,8 @@ class _HomeState extends State<Home> {
 
   void startGame() {
     game = true;
-    Timer.periodic(Duration(milliseconds: 33), (timer) {
-      time += 0.033;
+    Timer.periodic(Duration(milliseconds: 17), (timer) {
+      time += 0.017;
       height = -4.9 * time * time + 2.9 * time;
 
       setState(() {
@@ -81,10 +84,13 @@ class _HomeState extends State<Home> {
           upperPipeSize = Random().nextInt(60) + 20;
           emptySpace = Random().nextInt(30) + 25;
           lowerPipeSize = Random().nextInt(60) + 20;
+          if (emptySpace < (upperPipeSize + lowerPipeSize) / 4) {
+            emptySpace = ((upperPipeSize + lowerPipeSize) / 3).toInt();
+          }
           pipeLoc += 2.8;
           scored();
         } else {
-          pipeLoc -= 0.07;
+          pipeLoc -= 0.05;
         }
       });
 
